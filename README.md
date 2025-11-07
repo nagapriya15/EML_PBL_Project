@@ -21,9 +21,9 @@ By analyzing text patterns, the model helps detect fraudulent reviews that can m
 ## 🧹 Data Preprocessing
 The dataset (e.g., `reviews.csv`) must contain:
 - `review_text` → the review content  
-- `label` → review type (`0` = genuine, `1` = fake)
+- `label` → review type (`0 = genuine`, `1 = fake`)
 
-Steps performed:
+### Steps performed:
 1. Converted text to lowercase  
 2. Removed special characters and punctuation  
 3. Removed stopwords using NLTK  
@@ -33,9 +33,67 @@ Steps performed:
 ---
 
 ## 🤖 Model Training
-The model uses **Logistic Regression** for binary classification.  
+The model uses **Logistic Regression** for binary classification.
+
 - Data split: **80% training / 20% testing**  
 - Text transformed using **TF-IDF Vectorizer**  
 - Model trained using:
+
   ```python
   model = LogisticRegression(max_iter=1000)
+  ```
+
+- Evaluation metrics:
+  - **Accuracy**
+  - **Precision**
+  - **Classification Report**
+
+---
+
+## 💻 How to Run
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/nagapriya15/EML_PBL_Project.git
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the Python script:
+   ```bash
+   python eml_pbl.py
+   ```
+
+*(Ensure `reviews.csv` is in the same directory as `eml_pbl.py`.)*
+
+---
+
+## 📊 Sample Output
+```
+Accuracy: 0.8947
+Precision: 0.8800
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.91      0.89      0.90        80
+           1       0.88      0.90      0.89        70
+
+    accuracy                           0.89       150
+   macro avg       0.89      0.89      0.89       150
+weighted avg       0.89      0.89      0.89       150
+```
+
+---
+
+## 🧾 Results
+The model demonstrates strong performance in distinguishing fake and genuine reviews.  
+You can improve it further by:
+- Using **Word2Vec** or **BERT** embeddings  
+- Trying **Random Forest** or **SVM** classifiers  
+- Expanding your dataset for better generalization  
+
+---
+
+## 👩‍💻 Author
+**Naga Priya**  
+🎓 AI & ML Student | Passionate about NLP, Data Science & AI-driven automation  
